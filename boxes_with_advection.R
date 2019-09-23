@@ -2,7 +2,7 @@ k = 0.01
 va = 0.004
 ka = k+va
 
-transport = matrix(c(-ka,k,0,ka,ka,-ka,k,0,0,ka,-ka,k,k,0,ka,-ka), nrow=4,ncol=4)
+transport = matrix(c(-ka-k,k,0,ka,ka,-ka-k,k,0,0,ka,-ka-k,k,k,0,ka,-ka-k), nrow=4,ncol=4)
 #now let's do n boxes
 k = 0.01 #arbitrary
 va = 0.014 #arbitrary
