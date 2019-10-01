@@ -7,20 +7,20 @@ ka = k + va
 n = 102 #100 boxes for the tunnel plus 2 for the ends
 # Set final time below and the time step for graphing and saving intermediate values:
 tFinal = 400 #360 to traverse tunnel then dissapation time
-tStep  = 1
+tStep  = 0.5
 
 
 transport = matrix(0, n, n)
 for (j in 1:n) {
   transport[j, j] = -ka - k
   
-  if (j + 2 <= n) {
+  if (j + 1 <= n) {
     transport[j, j + 1] = k
   }
   else{
     transport[j, 1] = k
   }
-  if (j - 2 > 0) {
+  if (j - 1 > 0) {
     transport[j, j - 1] = ka
   }
   else{
@@ -95,7 +95,7 @@ for (j in 1:tSteps) {
 
 boxXaxis = 1:n
 
-for (j in 360:400) {
+for (j in 1:400) {
   plot(
     boxXaxis,
     timeTimeSeries[[j]],
