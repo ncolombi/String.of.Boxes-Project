@@ -63,14 +63,40 @@ for(j in 1:tSteps) {
 }
 
 # Plot for each box...
-# plot(timeTimeSeries, boxTimeSeries[[1]], type="l", lwd=2, col="blue", ylim=c(0, max(C)), xaxs="i", yaxs="i")
-# lines(timeTimeSeries, boxTimeSeries[[2]], lwd=2, col="red")
-# lines(timeTimeSeries, boxTimeSeries[[3]], lwd=2, col="green")
-# legend("topleft", legend=c("box 1","box 2","box 3"), lwd=c(2,2), col=c("blue","red","green"))
+# boxXaxis = 1:n
+#matplot(boxTimeSeries[[1]], type="l", lwd=2, ylim=c(0, max(C)), xlab="Time Step", ylab="Concentration")
+#legend_text <- c()
+#cl<-rainbow(n)
+#for (i in 1:n)
+#{lines(unlist(boxTimeSeries[[i]]), lwd=2,col=cl[i])
+#  legend_text<- c(legend_text,i)
+# title(main='Change in Concentration Over Time')
+#}
+#legend("topright", title="Box Number", legend=legend_text, lwd=c(2,2), col=(rainbow(n)))
 
-# Plot concentrations for all boxes, x-axis are #
-boxXaxis = 1:n
+# # Plot concentrations for all boxes, x-axis are #
+# boxXaxis = 1:n
+# for(j in 1:tSteps)
+#   {
+#   jpeg(paste0(j,".jpeg"))
+#   plot(boxXaxis, timeTimeSeries[[j]], type="l", lwd=2, xlab="Box Number" ,ylab = "Concentration", main=paste("t =", timeSeries[[j]]),col="blue", ylim=c(0, max(C)))
+#   #paste("myplot_",timeTimeSeries[j], ".jpeg", sep="")
+#   #mypath <- file.path("C:/Users/nadiacolombi/Documents/R","R","SAVEHERE",paste("myplot_", timeTimeSeries[[j]], ".jpg", sep = ""))
+#   dev.off()}
 
-for(j in 1:tSteps) {
-  plot(boxXaxis, timeTimeSeries[[j]], type="l", lwd=2, col="blue", ylim=c(0, max(C)), main=paste("t =", timeSeries[[j]]), xlab="Box#", ylab="Concentration")
-}
+
+##   Fit to a Quadratic and solve for D
+#   plot(boxXaxis, log(timeTimeSeries[[200]]), type="p", lwd=2,
+#   xlab="Box Number", ylab = "log(Concentration)",
+#   main=paste("t =", timeSeries[[200]]),col="blue", ylim=c(-20, max(0)))
+#   quad <- lm(log(unlist(timeTimeSeries[200]))~poly(boxXaxis,2,raw=TRUE))
+#   lines(boxXaxis,predict(quad,data.frame(boxXaxis)),col="red")
+#   graphics.off
+#
+#   poly <- quad[1]$coefficients
+#   t <- 200
+#   X <- poly[3]
+#   #set quadratic equal to f(x,t) to get D
+#   D <- (-1/(X*(pi^0.5)*(4*t)^1.5))^(2/3)
+#   summary(quad)
+#  #Coefs -39.3 + 2.63*X + -0.046*X^2", D=0.006648437
